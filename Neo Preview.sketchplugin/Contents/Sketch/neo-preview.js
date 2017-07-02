@@ -17,7 +17,7 @@ var onRun = function (context) {
   for (var i = 0; i < pages.count(); i++) {
       log(pages[i].name())
       let page = pages[i]
-      if (page.name() == "Symbols" || page.name().indexOf("_") == 0) {
+      if (page.name() == "Symbols" || page.name().indexOf("_") == 0 || page.name() == "Styles") {
   			log('skipping page: '+page.name());
   		}
       else{
