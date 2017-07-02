@@ -4,25 +4,25 @@
 
 ### How to install
 
-1. download [plugin zip file](https://github.com/alanfraneo/sketch-neo-preview/archive/master.zip)
+1. Download the [plugin](https://github.com/alanfraneo/sketch-neo-preview/archive/master.zip)
 
 2. Extract it.
 
-3. Run the `Neo Preview.sketchplugin` by double clicking it. 
+3. Run the `Neo Preview.sketchplugin` by double clicking it.
 
 That's it, the plugin will be installed and available under the plugins menu in Sketch.
 
 ### Features
 
-Export all artboards from all pages to a gallery using keyboard shortcut `cmd` + `shift` + `.`
+Export all artboards from current page to a gallery using keyboard shortcut `cmd` + `shift` + `,`
 
-Plugin will, by default exclude Symbols & Styles pages. Also for convenience excludes any page starting with an `underscore`
+Export all artboards from all pages to a gallery using keyboard shortcut `cmd` + `shift` + `.` - by default export will exclude `Symbols` & `Styles` pages. Also for convenience excludes any page starting with an `_`. For example: If I don't want to export a page for prototype preview like icons page, I'll add an underscore to exclude it.
 
 Gallery images maximize on click and fit to width. Ideal for prototypes as we can use this to check scrolling.
 
 Use keyboard shortcuts to navigate between images quickly. `left` and `right` arrows to move between screens and `esc` to minimize and go back to gallery.
 
-Each image will have a numbered unique location.hash based URL, so can easily share URLs if the files were in a web server.
+Each image will have a numbered unique `location.hash` based URL, so can easily share URLs if the files were in a web server.
 
 ### Screenshots
 
