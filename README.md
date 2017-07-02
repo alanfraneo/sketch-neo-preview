@@ -16,6 +16,11 @@ Each image will have a numbered unique location.hash based URL, so can easily sh
 
 ### Screenshots
 
+![Export from Sketch](/demo/01.jpg?raw=true "")
+
+![Gallery View](/demo/02.jpg?raw=true "")
+
+![Maximised view](/demo/03.jpg?raw=true "")
 
 ### License
 
