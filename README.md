@@ -22,6 +22,13 @@ Each image will have a numbered unique location.hash based URL, so can easily sh
 
 ![Maximised view](/demo/03.jpg?raw=true "")
 
+### Credits
+
+Thanks [ivanbozic](https://github.com/ivanbozic)'s [pages to folders](https://github.com/ivanbozic/sketch-pages-to-folders/), which was used as a reference for exporting images module of this plugin.
+
 ### License
 
 MIT
+
+### Contact
+Have any suggestions or feedbacks? Hit me up on Twitter [@alanfraneo](https://twitter.com/alanfraneo)
