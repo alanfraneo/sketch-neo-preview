@@ -2,9 +2,11 @@
 
 ### HTML based gallery straight from sketch document.
 
+This is an alternative for sketch mirror, provides 2x scaled images out of the box for retina displays, images in the preview are always fit to width of the browser and fill up the screen, so it looks more like the real thing. This also allows scrolling for vertical oriented web-page/website designs.
+
 ### How to install
 
-1. Download the [plugin](https://github.com/alanfraneo/sketch-neo-preview/archive/master.zip)
+1. Download the latest version from [releases](https://github.com/alanfraneo/sketch-neo-preview/releases)
 
 2. Extract it.
 

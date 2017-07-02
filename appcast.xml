@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Neo Preview</title>
+    <link>https://raw.githubusercontent.com/alanfraneo/sketch-neo-preview/master/appcast.xml</link>
+    <description>A Sketch plugin to create HTML based gallery straight from sketch artboards</description>
+    <language>en</language>
+      <item>
+        <title>Version 1.0</title>
+        <description>
+          <![CDATA[
+            <ul>
+              <li>v1.0</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Sun, 02 Jul 2017 20:34:00 +0000</pubDate>
+        <enclosure url="https://github.com/alanfraneo/sketch-neo-preview/releases/download/v1.0/neo-preview-1.0.zip" sparkle:version="1.0" type="application/octet-stream" />
+      </item>
+      <item>
+        <title>Version 1.1</title>
+        <description>
+          <![CDATA[
+            <ul>
+            <li>Add support for Sketch 45 (Auto-update enabled)</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Mon, 03 Jul 2017 00:34:00 +0000</pubDate>
+        <enclosure url="https://github.com/alanfraneo/sketch-neo-preview/releases/download/v1.1/neo-preview-1.1.zip" sparkle:version="1.1" type="application/octet-stream" />
+      </item>
+  </channel>
+</rss>

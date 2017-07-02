@@ -1,9 +1,10 @@
 {
     "name" : "Neo Preview",
     "identifier" : "com.sketchapp.neo.preview",
-    "version" : "1.0",
+    "version" : "1.1",
     "description" : "Open artboards in browser as images",
-    "authorEmail" : "alanfraneo@gmail.com",
+    "homepage": "https://github.com/alanfraneo/sketch-neo-preview/",
+    "appcast": "https://raw.githubusercontent.com/alanfraneo/sketch-neo-preview/master/appcast.xml",
     "author" : "Alan Francis",
     "commands" : [
     {
