@@ -2,6 +2,16 @@
 
 ### HTML based gallery straight from sketch document.
 
+### How to install
+
+1. download [plugin zip file](https://github.com/alanfraneo/sketch-neo-preview/archive/master.zip)
+
+2. Extract it.
+
+3. Run the `Neo Preview.sketchplugin` by double clicking it. 
+
+That's it, the plugin will be installed and available under the plugins menu in Sketch.
+
 ### Features
 
 Export all artboards from all pages to a gallery using keyboard shortcut `cmd` + `shift` + `.`
