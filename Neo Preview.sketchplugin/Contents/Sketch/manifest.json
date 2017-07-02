@@ -8,10 +8,17 @@
     "commands" : [
     {
       "script" : "neo-preview.js",
-      "handler" : "onRun",
+      "handler" : "exportAllPages",
       "shortcut" : "cmd shift .",
-      "name" : "Neo Preview",
-      "identifier" : "neo-preview"
+      "name" : "Preview all pages",
+      "identifier" : "neo-preview-all"
+    },
+    {
+      "script" : "neo-preview.js",
+      "handler" : "exportCurrentPage",
+      "shortcut" : "cmd shift ,",
+      "name" : "Preview current page",
+      "identifier" : "neo-preview-page"
     }
   ]
 }

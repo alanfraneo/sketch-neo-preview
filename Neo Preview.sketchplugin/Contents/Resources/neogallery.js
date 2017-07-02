@@ -96,6 +96,7 @@ var NeoGallery = new function() {
                            </div>`;
         window.location.hash = '#' + (parseInt(currentImg) + 1);
         document.getElementById("maxedImage").addEventListener('click', NeoGallery.closeLargeImage);
+        window.scrollTo(0, 0);
     }
 
     this.removeHash = function () {
