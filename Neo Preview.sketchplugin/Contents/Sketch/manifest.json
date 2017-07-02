@@ -1,0 +1,17 @@
+{
+    "name" : "Neo Preview",
+    "identifier" : "com.sketchapp.neo.preview",
+    "version" : "1.0",
+    "description" : "Open artboards in browser as images",
+    "authorEmail" : "alanfraneo@gmail.com",
+    "author" : "Alan Francis",
+    "commands" : [
+    {
+      "script" : "neo-preview.js",
+      "handler" : "onRun",
+      "shortcut" : "cmd shift .",
+      "name" : "Neo Preview",
+      "identifier" : "neo-preview"
+    }
+  ]
+}
