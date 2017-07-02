@@ -140,7 +140,7 @@ code {
 #neogallery img {
   width: 420px;
     margin: 10px;
-    border: 1px solid #414141;
+    border: 1px solid #757575;
 }
 .imageHolder:hover {
     transform: scale(1.02);
@@ -162,7 +162,7 @@ code {
     transition: .3s;
 }
 .titletext {
-    background: #414141;
+    background: #757575;
     bottom: 1px;
     font-weight: 100;
     color: #fff;
