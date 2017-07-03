@@ -29,5 +29,18 @@
         <pubDate>Mon, 03 Jul 2017 00:34:00 +0000</pubDate>
         <enclosure url="https://github.com/alanfraneo/sketch-neo-preview/releases/download/v1.1/neo-preview-1.1.zip" sparkle:version="1.1" type="application/octet-stream" />
       </item>
+      <item>
+        <title>Version 1.2</title>
+        <description>
+          <![CDATA[
+            <ul>
+            <li>Default commands now take scaling from artboards' top most export configuration</li>
+            <li>Added two more commands to force scaling at 2x</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Tue, 04 Jul 2017 00:39:00 +0000</pubDate>
+        <enclosure url="https://github.com/alanfraneo/sketch-neo-preview/releases/download/v1.2/neo-preview-1.2.zip" sparkle:version="1.2" type="application/octet-stream" />
+      </item>
   </channel>
 </rss>
