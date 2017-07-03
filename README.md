@@ -20,6 +20,14 @@ Export all artboards from current page to a gallery using keyboard shortcut `cmd
 
 Export all artboards from all pages to a gallery using keyboard shortcut `cmd` + `shift` + `.` - by default export will exclude `Symbols` & `Styles` pages. Also for convenience excludes any page starting with an `_`. For example: If I don't want to export a page for prototype preview like icons page, I'll add an underscore to exclude it.
 
+The default scaling for above commands will be taken from the artboards' top most export configuration, If an artboard is not marked for export, it will be skipped.
+
+![Default export configuration](/demo/05.jpg?raw=true "")
+
+Also included two more commands to force 2x scaling when exporting the artboards, this too will ignore artboards which are not marked for export.
+
+![2x force scaling commands](/demo/04.jpg?raw=true "")
+
 Gallery images maximize on click and fit to width. Ideal for prototypes as we can use this to check scrolling.
 
 Use keyboard shortcuts to navigate between images quickly. `left` and `right` arrows to move between screens and `esc` to minimize and go back to gallery.

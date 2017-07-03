@@ -3,14 +3,29 @@
 
 /**
 function for exporting all artboards from all pages except, Symbols, Styles and pages beginning with _
+the scaling of each artboard is forced to 2x.
 */
-var exportAllPages = function (context) {
+var exportAllPages2x = function (context) {
+  exportAllPages(context, '2x');
+}
+/**
+function for exporting all artboards from all pages except, Symbols, Styles and pages beginning with _
+the scaling of each artboard is taken from each artboards topmost export configuration.
+*/
+var exportAllPagesDefault = function (context) {
+  exportAllPages(context, 'default');
+}
+/**
+function for exporting all artboards from all pages except, Symbols, Styles and pages beginning with _
+*/
+var exportAllPages = function (context, scale) {
   var sketch = context.api();
   var app = sketch.Application();
   var doc = context.document;
   var pages = doc.pages();
   var exportPath = getExportPath(doc);
   var imgConfigList = []
+  let currentPage = doc.currentPage();
   for (var i = 0; i < pages.count(); i++) {
       var page = pages[i];
       if (page.name() == "Symbols" || page.name().indexOf("_") == 0 || page.name() == "Styles") {
@@ -18,25 +33,39 @@ var exportAllPages = function (context) {
   		}
       else{
         doc.setCurrentPage(page);
-        var imgConfigListForPage = exportArtboardsOfPage(doc, page, exportPath);
+        var imgConfigListForPage = exportArtboardsOfPage(doc, scale, page, exportPath);
         log(imgConfigListForPage);
         imgConfigList = imgConfigList.concat(imgConfigListForPage);
         log(imgConfigList);
       }
   }
   createAndOpenHTML(imgConfigList, exportPath, context);
+  doc.setCurrentPage(currentPage); // since we change current page for exporting for each page, we reset here to original current page.
 };
-
+/**
+function for exporting all artboards from current page.
+the scaling of each artboard is forced to 2x.
+*/
+var exportCurrentPage2x = function (context, scale) {
+  exportCurrentPage(context, '2x');
+}
+/**
+function for exporting all artboards from current page.
+the scaling of each artboard is taken from each artboards topmost export configuration.
+*/
+var exportCurrentPageDefault = function (context, scale) {
+  exportCurrentPage(context, 'default');
+}
 /**
 function for exporting all artboards from current page.
 */
-var exportCurrentPage = function (context) {
+var exportCurrentPage = function (context, scale) {
   var sketch = context.api();
   var app = sketch.Application();
   var doc = context.document;
   var exportPath = getExportPath(doc);
   let page = doc.currentPage();
-  var imgConfigList = exportArtboardsOfPage(doc, page, exportPath);
+  var imgConfigList = exportArtboardsOfPage(doc, scale, page, exportPath);
   createAndOpenHTML(imgConfigList, exportPath, context);
 };
 /**
@@ -55,19 +84,33 @@ var getExportPath = function (doc) {
   function for exporting all artboards of a given page.
   returns a json object of the list of images
 */
-var exportArtboardsOfPage = function (doc, page, exportPath) {
+var exportArtboardsOfPage = function (doc, scale, page, exportPath) {
   var imgConfigListForPage = [];
   var imageExportPath = exportPath + "img/";
   doc.showMessage("Exporting page: "+ page.name());
   var artboards = page.artboards()
   for (var j = 0; j < artboards.count(); j++) {
       var artboard = artboards[j];
-      let filename = artboard.name() + ".png";
-      doc.saveArtboardOrSlice_toFile_(scaleArtboard(artboard), imageExportPath + filename);
-      imgconfig = {'imageURL': 'img/'+filename}
-      imgConfigListForPage.push(imgconfig);
+      //check if artboard is marked for export, ignore others
+      if (artboard.exportOptions().exportFormats().length > 0) {
+          let filename = artboard.name() + ".png";
+          var artboardscale = getArtboardScale(artboard, scale);
+          doc.saveArtboardOrSlice_toFile_(scaleArtboard(artboard, artboardscale), imageExportPath + filename);
+          imgconfig = {'imageURL': 'img/'+filename}
+          imgConfigListForPage.push(imgconfig);
+      }
   }
   return imgConfigListForPage;
+}
+var getArtboardScale = function (artboard, scale) {
+  if (scale == '2x') {
+    return '2';
+  }else if(scale == 'default'){
+    //read from artboards top most export config
+    return String(artboard.exportOptions().exportFormats()[0]).split('  ')[0];
+  }else{
+    return '1'; //will never happen
+  }
 }
 /**
   function for creating the HTML using the img list, once created it will automatically open the file using default browser
@@ -95,10 +138,11 @@ var currentDate = function () {
 /**
   function to scale the artboard while exporting, current setting is at 2x.
 */
-var scaleArtboard = function(layer) {
+var scaleArtboard = function(layer, artboardscale) {
     var rect = layer.absoluteInfluenceRect()
     var request = [MSExportRequest new]
     request.rect = rect
-    request.scale = 2; //scaling at 2x
+    // request.scale = 2; //scaling at 2x
+    request.scale = artboardscale;
     return request
  };
