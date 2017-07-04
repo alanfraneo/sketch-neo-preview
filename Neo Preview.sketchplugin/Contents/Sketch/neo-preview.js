@@ -25,7 +25,7 @@ var exportAllPages = function (context, scale) {
   var pages = doc.pages();
   var exportPath = getExportPath(doc);
   var imgConfigList = []
-  let currentPage = doc.currentPage();
+  var currentPage = doc.currentPage();
   for (var i = 0; i < pages.count(); i++) {
       var page = pages[i];
       if (page.name() == "Symbols" || page.name().indexOf("_") == 0 || page.name() == "Styles") {
@@ -64,7 +64,7 @@ var exportCurrentPage = function (context, scale) {
   var app = sketch.Application();
   var doc = context.document;
   var exportPath = getExportPath(doc);
-  let page = doc.currentPage();
+  var page = doc.currentPage();
   var imgConfigList = exportArtboardsOfPage(doc, scale, page, exportPath);
   createAndOpenHTML(imgConfigList, exportPath, context);
 };
@@ -93,7 +93,7 @@ var exportArtboardsOfPage = function (doc, scale, page, exportPath) {
       var artboard = artboards[j];
       //check if artboard is marked for export, ignore others
       if (artboard.exportOptions().exportFormats().length > 0) {
-          let filename = artboard.name() + ".png";
+          var filename = artboard.name() + ".png";
           var artboardscale = getArtboardScale(artboard, scale);
           doc.saveArtboardOrSlice_toFile_(scaleArtboard(artboard, artboardscale), imageExportPath + filename);
           imgconfig = {'imageURL': 'img/'+filename}
