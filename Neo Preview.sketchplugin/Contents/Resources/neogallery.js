@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 window.onload = function() {
     NeoGallery.initNeoGallery();
 }
@@ -8,7 +10,7 @@ var NeoGallery = new function() {
         NeoGallery.renderGallery(imgconfig);
         NeoGallery.handleHashChange();
         window.onhashchange = NeoGallery.handleHashChange;
-    }
+    };
 
     this.renderGallery = function(json) {
         var images = json.Images;
@@ -27,10 +29,9 @@ var NeoGallery = new function() {
         }
 
         document.addEventListener('keydown', NeoGallery.bindKeyboardShortcuts);
-    }
+    };
 
     this.controls = function(el) {
-        console.log(el)
         var nextImgNumber = parseInt(document.getElementById("maxedImage").attributes['current-img'].value);
         if (el.attributes['id'].value == 'prevBtn') {
             nextImgNumber -= 1;
@@ -38,7 +39,7 @@ var NeoGallery = new function() {
             nextImgNumber += 1;
         }
         NeoGallery.setMaxImage(nextImgNumber);
-    }
+    };
 
     this.bindKeyboardShortcuts = function (e) {
         if (document.getElementById('maxedImage')) {
@@ -59,7 +60,7 @@ var NeoGallery = new function() {
                     return; // exit this handler for other keys
             }
         }
-        e.preventDefault(); // prevent the default action (scroll / move caret)
+        e.stopPropagation(); // prevent the default action (scroll / move caret)
     };
 
     this.handleHashChange = function() {
@@ -67,12 +68,11 @@ var NeoGallery = new function() {
             imgNumber = window.location.hash.split("#")[1];
             imgToClick = parseInt(imgNumber) - 1;
             document.getElementById("img-" + imgToClick).click();
-            console.log("load img-" + imgNumber);
         }
         else{ //no hash in UI, so close the maxed image if it exists
-        	NeoGallery.closeLargeImage()
+        	NeoGallery.closeLargeImage();
         }
-    }
+    };
 
     this.setMaxImage = function(nextImgNumber) {
         var nextImgId = 'img-' + nextImgNumber;
@@ -82,10 +82,9 @@ var NeoGallery = new function() {
             document.getElementById("maxedImage").innerHTML += `<img src='${document.getElementById(nextImgId).src}'>`;
             window.location.hash = '#' + (nextImgNumber + 1);
         }
-    }
+    };
 
     this.maximizeImage = function(el) {
-        console.log(el);
         document.getElementsByClassName("control").show();
         if(document.getElementById("maxedImage")) document.getElementById("maxedImage").remove();
         document.getElementById("neogallery").hide();
@@ -97,11 +96,11 @@ var NeoGallery = new function() {
         window.location.hash = '#' + (parseInt(currentImg) + 1);
         document.getElementById("maxedImage").addEventListener('click', NeoGallery.closeLargeImage);
         window.scrollTo(0, 0);
-    }
+    };
 
     this.removeHash = function () {
         history.replaceState("", document.title, window.location.pathname + window.location.search);
-    }
+    };
 
     this.closeLargeImage = function () {
         if(document.getElementById("maxedImage")) document.getElementById("maxedImage").remove();
@@ -109,7 +108,7 @@ var NeoGallery = new function() {
         document.getElementById("title").show();
         document.getElementsByClassName("control").hide();
         NeoGallery.removeHash();
-    }
+    };
 
     this.ajaxGet = function(url, success) {
         var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
@@ -124,7 +123,7 @@ var NeoGallery = new function() {
         xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         xhr.send();
         return xhr;
-    }
+    };
 }
 
 Element.prototype.remove = function() {
