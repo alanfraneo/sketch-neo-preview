@@ -148,6 +148,7 @@ var NeoGallery = new function() {
         if (imgNumber == parseInt(imgconfig.imageCount)-1) document.getElementById("nextBtn").hide();
         if(document.getElementById("maxedImage")) document.getElementById("maxedImage").remove();
         document.getElementById("neogallery").hide();
+        document.getElementById("tabs").hide();
         document.getElementById("title").hide();      
     }
 
