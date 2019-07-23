@@ -6,7 +6,9 @@ GridHTML.getHTML = function (context, config) {
   var html =
     '<!DOCTYPE HTML><html><head><meta charset=utf-8><title>NeoGallery</title>\
     	<style>'+neogallerycss+'</style>\
-      </head><body><div id="title"></div><div id="neogallery"></div></body>\
+      </head><body><div id="title"></div>\
+      <div id="tabs"></div>\
+      <div id="neogallery"></div></body>\
     	<script>var imgconfig = '+config+';\
       '+neogalleryjs+'</script>\
      </html>';

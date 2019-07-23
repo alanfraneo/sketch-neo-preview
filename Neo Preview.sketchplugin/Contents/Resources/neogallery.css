@@ -173,13 +173,14 @@ code {
     font-size: 13px;
 }
 #maxedImage img {
-    width: 100%;
+  width: 100%;
 }
 #maxedImage {
     position: absolute;
     width: 100%;
     top: 0;
     z-index: 30;
+    text-align: center;
 }
 body {
     margin: 0;
@@ -191,10 +192,11 @@ body {
     position: absolute;
     top: 50%;
     height: 40px;
-  width: 40px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, .4);
-  border-radius: 100%;
-  cursor: pointer;
+    width: 40px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .4);
+    border-radius: 100%;
+    cursor: pointer;
+    background-color: #ccc;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABQCAYAAACZM2JkAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAK6wAACusBgosNWgAAABR0RVh0Q3JlYXRpb24gVGltZQA5LzMvMTIU8Q8YAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAA5ZJREFUeJztm81t20AQRp+C3O0SjJ1rAKkBIyzBqSA++Z4OUkKu8smuIO4gNNwABeQ6C7sDuQLmwBVAG2ZkicvRypgHEKAESpz9sJjZv2/Wti27MpvNdv7NR+bq6uoGWADV9fX1On13CtRAs1wuL2cu9DiSyN/TxxVQpfsamKf728+mUX1MFr37OfCQ7r/0n/lkF8+HpaLryRu+8FLkFVB56shAyscPvBQY4C9wvlwu196jjfAePZLe6GI+8MgKqLxHj6fmpch/07VhDtQu9Hia3v0KOE9Xv0A2njoy4BOWQmjbFk8dRkwidAjhLITQbH/ShhBCE0I4O2QM2YUOIVzQFYih4c4hmANNiu0gZBU6hPAL+A2c5PzfTJwAv1OM5mQphiGENwftMcYiqmYI4XUjV0AVY1xbvD9LMQwhVMAjZaWKbcyBxxS7CaOEDiH8BP5QZqrYxgnwJ7VhcvZKHSJyCtwBX//3XMGp4zX3wMVUqaRtW/Zd+H/kOHvxEF/p2nQ61Qv2TR0XwHPOQA7MM12bJmMvoWOMNd3OwlPOYA7EE90IpJ7yJXsXwxhjQ7eQstr2bMGsgEVqy6SMGnXEGNcxxgVwmykeS25jjAursXSWmWGM8RL4keO/jPiRYjYj2xQ8xvgL+EbZRfIZ+JZiNSXrWkeM8Y5yi+Sm6N0d4uXZV+8KLZJmRW8I32ExwHdYDPGzdxkIIdyQNmc3w8Xe0nED+ObsWJLIfprUAD9NakSFnya1IeXjwdOkquqnSa3wHj2SoY3pHn6aNBM1fprUBD9NasW2CYuq7jdhcXbHU4cRLrQRLrQRLrQRLrQRLrQRLrQRLrQRLrQRLrQRLrQVbdvufG1DVc9UtRifoao2qnp2yBiy92hVLdZnmGI7CFmFVtXifYYpRnOyrEer6pvbOSJSxMK1qr7pMxQRk7PRkKFHq2rFkfoMU+wmjBJaVX9y5D7D1IbJ2St1xBjf5TMsOHW85h64mDKVuM+ww32GRpTpMxSRmnItFLvyRDcCqad8yd7FUERKtFDsygpYpLZMyqhRh4isReRofYYisrAaS2eZGYrIJUfmM0wxm5FtCi4iR+MzTLGaknWtQ0SK9xmmGM3JvnpXaJE0K3pD+CFHI3yHxQh3ZWVAVW9Ix3Y3w8Xe0nEjIu4zHEsS2X2GBrjP0IgK9xnakPLxoM9QRNxnaIX36JEMbUz3cJ9hJmrcZ2iC+wyteM+E5R9csMW4DOpJbAAAAABJRU5ErkJggg==)
 }
 .next {
@@ -211,4 +213,21 @@ body {
     font-family: sans-serif;
     text-align: center;
     margin-top: 10px;
+}
+#tabs {
+      text-align: center;
+}
+#tabs li {
+    list-style: none;
+    display: inline-block;
+    padding: 10px 5px 12px;
+    margin: 30px 15px 0;
+    color: #a3a3a3;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 200;
+}
+#tabs li.active {
+    border-bottom: 3px solid #1eaeeb;
+    color: #ffffff;
 }
