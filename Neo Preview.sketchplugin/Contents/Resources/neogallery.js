@@ -55,10 +55,18 @@ var NeoGallery = new function() {
     this.renderGallery = function(json) {
         NeoGallery.renderTabs(json);
         var images = json.Images;
-        document.getElementById("title").innerHTML = `<div class='createdon'>Images uploaded on: ${json.createdDate}</div><div class='createdon'>Click on an image to see full screen</div>`;
-        document.body.innerHTML += `<div id="prevBtn" class="control previous" onclick='NeoGallery.controls(this)'>
-                            </div><div id="nextBtn" class="control next" onclick='NeoGallery.controls(this)'></div>`;
-        document.body.style.backgroundColor = '#212121';
+        var title = json.title;
+        if (title == undefined) {
+            title = document.location.pathname.substring(1);
+            title = decodeURI(title);
+        }
+        document.title = title;
+        document.getElementById("title").innerHTML = `<a id="backbtn" href="../">&lt; Back</a>
+        <div class='createdon title'>${title}</div>
+        <div class='createdon'>uploaded on: ${json.createdDate}</div>
+        <div class='createdon'>Click on an image to see full screen</div>`;
+        document.body.innerHTML += `<div id="prevBtn" class="control previous" onclick='NeoGallery.controls(this)'>${NeoGallery.getNextIcon(180)}</div>
+                                    <div id="nextBtn" class="control next" onclick='NeoGallery.controls(this)'>${NeoGallery.getNextIcon(0)}</div>`;
         NeoGallery.renderGalleryforTab(json, images[0].pagename)
         document.addEventListener('keydown', NeoGallery.bindKeyboardShortcuts);
     };
@@ -79,6 +87,12 @@ var NeoGallery = new function() {
             }
         }      
     }
+
+    this.getNextIcon = function(rotation){
+        return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 32 32" height="32px" id="Layer_1" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" transform="rotate(${rotation}) scale(3 3)">
+                    <path d="M24.291,14.276L14.705,4.69c-0.878-0.878-2.317-0.878-3.195,0l-0.8,0.8c-0.878,0.877-0.878,2.316,0,3.194  L18.024,16l-7.315,7.315c-0.878,0.878-0.878,2.317,0,3.194l0.8,0.8c0.878,0.879,2.317,0.879,3.195,0l9.586-9.587  c0.472-0.471,0.682-1.103,0.647-1.723C24.973,15.38,24.763,14.748,24.291,14.276z" fill="#515151"/>
+                </svg>`;
+    };
 
     this.controls = function(el) {
         var nextImgNumber = parseInt(document.getElementById("maxedImage").attributes['current-img'].value);
@@ -171,6 +185,7 @@ var NeoGallery = new function() {
         if(document.getElementById("maxedImage")) document.getElementById("maxedImage").remove();
         document.getElementById("neogallery").show();
         document.getElementById("title").show();
+        document.getElementById("tabs").show();
         document.getElementsByClassName("control").hide();
         NeoGallery.removeHash();
     };
