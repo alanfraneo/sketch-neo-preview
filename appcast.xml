@@ -18,7 +18,7 @@
         <enclosure url="https://github.com/alanfraneo/sketch-neo-preview/releases/download/v1.3/neo-preview-1.3.zip?raw=true" sparkle:version="1.3" type="application/octet-stream" />
       </item>
       <item>
-        <enclosure url="https://github.com/alanfraneo/sketch-neo-preview/releases/download/v1.4/neo-preview-1.4.zip?raw=true" sparkle:version="1.4" type="application/octet-stream" />
+        <enclosure url="https://github.com/alanfraneo/sketch-neo-preview/releases/download/1.4/neo-preview-1.4.zip" sparkle:version="1.4" type="application/octet-stream" />
       </item>
   </channel>
 </rss>
