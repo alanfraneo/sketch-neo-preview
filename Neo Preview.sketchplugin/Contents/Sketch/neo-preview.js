@@ -77,8 +77,10 @@ var exportCurrentPage = function (context, scale) {
 function for deleting old export folder and creating a new one
 */
 var getExportPath = function (doc) {
+  var displayname = doc.displayName();
+  displayname = displayname.indexOf(".sketch") > -1 ? displayname.slice(0,-7): displayname;
   var docLocation = doc.fileURL().path().split(doc.displayName())[0];
-  // log(docLocation);
+  console.log(docLocation);
   var exportPath = docLocation + "/neogallery/";
   var imageExportPath = exportPath + "img/";
   FSUtil.deleteAndCreateFolder(exportPath);
