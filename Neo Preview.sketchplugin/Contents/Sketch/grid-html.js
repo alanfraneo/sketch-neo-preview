@@ -17,14 +17,12 @@ GridHTML.getHTML = function (context, config) {
 
 
 GridHTML.getCSS = function (context) {
-  var sketch = context.api();
-  var cssURL = sketch.resourceNamed('neogallery.css');
+  var cssURL = context.plugin.urlForResourceNamed('neogallery.css');
   return GridHTML.readTextFromFile(cssURL);
 }
 
 GridHTML.getJS = function (context) {
-  var sketch = context.api();
-  var jsURL = sketch.resourceNamed('neogallery.js');
+  var jsURL = context.plugin.urlForResourceNamed('neogallery.js');
   return GridHTML.readTextFromFile(jsURL);
 }
 
